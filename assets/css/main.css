@@ -226,7 +226,17 @@ h6 {
     transition: 0.3s;
     position: relative;
   }
-
+/* 讓導覽列的像素圖示保持清晰 */
+.nav-pixel-icon {
+  width: 75px;          /* 調整你想要顯示的大小 */
+  height: auto;
+  image-rendering: pixelated; /* 確保像素點不會模糊 */    /* 與文字水平對齊 */     
+}
+/* 讓圖片在滑鼠移上去時有一點動態感 */
+.navmenu a:hover .nav-pixel-icon {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
   .navmenu a i,
   .navmenu a:focus i {
     font-size: 12px;
@@ -235,6 +245,21 @@ h6 {
     transition: 0.3s;
   }
 
+
+
+  .pixel-start-btn {
+  width: 200px;          /* 調整你想要顯示的大小 */
+  height: auto;
+  image-rendering: pixelated; /* 確保像素點不會模糊 */
+  vertical-align: center;     /* 與文字水平對齊 */
+  margin-right: 5px;         /* 與文字保持一點距離 */
+}
+
+/* 讓圖片在滑鼠移上去時有一點動態感 */
+ a:hover .pixel-start-btn {
+  transform: scale(1.1);
+  transition: 0.1s;
+ }
   .navmenu>ul>li>a:before {
     content: "";
     position: absolute;

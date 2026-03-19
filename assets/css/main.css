@@ -1620,7 +1620,27 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+/* 飛出金幣的樣式 */
+.flying-coin {
+  position: fixed;
+  width: 30px; /* 飛出來的比較小顆 */
+  pointer-events: none; /* 防止擋住點擊 */
+  z-index: 9999;
+  image-rendering: pixelated;
+  animation: flyOut 0.8s ease-out forwards;
+}
 
+@keyframes flyOut {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    /* 飛到隨機位置並旋轉 */
+    transform: translate(var(--destX), var(--destY)) rotate(360deg);
+    opacity: 0;
+  }
+}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/

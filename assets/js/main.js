@@ -245,7 +245,33 @@
       }
     })
   }
+/*--------*/
+  // 1. 抓取新的圖片元素 (把 reset-btn 改成 reset-icon)
+const resetIcon = document.getElementById('reset-icon');
+
+// 2. 點擊圖片的邏輯
+// 2. 點擊圖片的邏輯
+if (resetIcon) {
+  resetIcon.addEventListener('click', () => {
+    count = 0; 
+    if (countDisplay) countDisplay.innerText = count;
+    localStorage.setItem('myCoinCount', 0); // 記憶也歸零
+    
+    if (maxMsg) maxMsg.style.visibility = "hidden";
+    if (coinBtn) coinBtn.style.filter = "none";
+    console.log("金幣已歸零！");
+  });
+
+    // 3. 視覺回饋（這部分你寫得是對的！）
+    resetIcon.addEventListener('mouseover', () => {
+        resetIcon.style.transform = "scale(1.1)";
+    });
+    resetIcon.addEventListener('mouseout', () => {
+        resetIcon.style.transform = "scale(1)";
+    });
+}
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
 
 })();

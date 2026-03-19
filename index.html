@@ -106,7 +106,7 @@
               </div>
               <div class="col-lg-7 about-info">
                 <p><strong>名字: </strong> <span>蔡維馨</span></p>
-                <p><strong>職業: </strong> <span>全職學生w</span></p>
+                <p><strong>職業: </strong> <span>在南台科技大學擔任全職學生w</span></p>
                 <p><strong>Email: </strong> <span>5b2g0007@stust.edu.tw</span></p>
                 <p><strong>手機號碼: </strong> <span>這是秘密</span></p>
               </div>
@@ -364,58 +364,29 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
+        <h2>$</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 gx-lg-5">
-
-          <div class="col-lg-6">
-            <div class="pricing-item d-flex justify-content-between">
-              <h3>Portrait Photography</h3>
-              <h4>$160.00</h4>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-6">
-            <div class="pricing-item d-flex justify-content-between">
-              <h3>Fashion Photography</h3>
-              <h4>$300.00</h4>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-6">
-            <div class="pricing-item d-flex justify-content-between">
-              <h3>Sports Photography</h3>
-              <h4>$200.00</h4>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-6">
-            <div class="pricing-item d-flex justify-content-between">
-              <h3>Still Life Photography</h3>
-              <h4>$120.00</h4>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-6">
-            <div class="pricing-item d-flex justify-content-between">
-              <h3>Wedding Photography</h3>
-              <h4>$500.00</h4>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-6">
-            <div class="pricing-item d-flex justify-content-between">
-              <h3>Photojournalism</h3>
-              <h4>$200.00</h4>
-            </div>
-          </div><!-- End Pricing Item -->
-
+      <div class="coin-system" style="text-align: center; margin: 20px 0;">
+        <div id="pixel-coin" style="cursor: pointer; display: inline-block; transition: transform 0.1s;">
+          <img src="assets/img/images.png" width="64">
         </div>
+        
+        <div style="margin-top: 10px; font-size:20px">
+          金幣數量: <span id="coin-count">0</span> 
+        </div>
+        
+        <div id="max-msg" style="color: red; font-size: 12px; visibility: hidden;">MAX</div>
 
+        <div style="margin-top: 15px;">
+          <img id="reset-icon" src="assets/img/reset.png" alt="reset" width="40" style="
+            cursor: pointer; 
+            image-rendering: pixelated; /* 保持像素清晰 */
+            transition: transform 0.1s; /* 加一點點擊縮放特效 */
+          ">
+          <div style="font-size: 15px; color: #888;">歸零</div>
+        </div>
       </div>
 
     </section><!-- /Pricing Section -->
@@ -429,7 +400,7 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="content px-xl-5">
-              <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
+              <img src="assets/img/like.jpg" width="30%" >
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
               </p>
@@ -727,7 +698,57 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script>
+    let count = localStorage.getItem('myCoinCount') ? parseInt(localStorage.getItem('myCoinCount')) : 0;
+    
+    const coinBtn = document.getElementById('pixel-coin');
+    const countDisplay = document.getElementById('coin-count');
+    const maxMsg = document.getElementById('max-msg');
+  
+    countDisplay.innerText = count;
+  
+    coinBtn.addEventListener('click', (e) => {
+      if (count < 100) {
+        count++;
+        countDisplay.innerText = count;
+        localStorage.setItem('myCoinCount', count);
+  
+        // 1. 觸發飛出效果
+        createFlyingCoin(e.clientX, e.clientY);
+  
+        // 2. 原本按鈕的跳動特效
+        coinBtn.style.transform = "scale(1.2)";
+        setTimeout(() => { coinBtn.style.transform = "scale(1)"; }, 100);
+  
+        if (count === 100) {
+          maxMsg.style.visibility = "visible";
+          coinBtn.style.filter = "grayscale(100%)";
+        }
+      }
+    });
+  
+    // 飛出金幣的核心程式
+    function createFlyingCoin(x, y) {
+      const flyer = document.createElement('img');
+      flyer.src = "assets/img/images.png"; // 這裡要確定路徑對喔！
+      flyer.className = "flying-coin";
+      flyer.style.left = x + 'px';
+      flyer.style.top = y + 'px';
+      
+      // 隨機噴射角度
+      const destX = (Math.random() - 0.5) * 200; 
+      const destY = -100 - (Math.random() * 100);
+      flyer.style.setProperty('--destX', destX + 'px');
+      flyer.style.setProperty('--destY', destY + 'px');
+  
+      document.body.appendChild(flyer);
+  
+      // 動畫結束後自動刪除，不然網頁會卡住
+      flyer.addEventListener('animationend', () => {
+        flyer.remove();
+      });
+    }
+  </script>
 </body>
 
 </html>

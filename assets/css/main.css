@@ -247,19 +247,7 @@ h6 {
 
 
 
-  .pixel-start-btn {
-  width: 200px;          /* 調整你想要顯示的大小 */
-  height: auto;
-  image-rendering: pixelated; /* 確保像素點不會模糊 */
-  vertical-align: center;     /* 與文字水平對齊 */
-  margin-right: 5px;         /* 與文字保持一點距離 */
-}
-
-/* 讓圖片在滑鼠移上去時有一點動態感 */
- a:hover .pixel-start-btn {
-  transform: scale(1.1);
-  transition: 0.1s;
- }
+  
   .navmenu>ul>li>a:before {
     content: "";
     position: absolute;
@@ -718,10 +706,23 @@ section,
 }
 
 .hero .container {
-  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  
+  /* 🏆 關鍵修正：把 'center' 改為 'flex-start' 🏆 */
+  /* 這會讓內容不再強制垂直置中，而是從頂部開始排隊 */
+  justify-content: flex-start !important; 
+  
+  align-items: center !important; /* 保持水平置中 */
+  
+  /* 給容器一點頂部內距，防止東西貼到最上面 */
+  padding-top: 10vh !important; 
+  min-height: 80vh; /* 確保容器夠高 */
   z-index: 3;
 }
-
+.pixel-start-btn{
+  z-index: 4
+}
 .hero h2 {
   margin: 0;
   font-size: 64px;
@@ -737,6 +738,7 @@ section,
 .hero p span {
   letter-spacing: 1px;
 }
+
 
 @media (max-width: 768px) {
   .hero h2 {
@@ -1666,6 +1668,54 @@ section,
     opacity: 0;
   }
 }
+/* 🏆 強制按鈕圖片變回圓形/原本形狀 🏆 */
+/* 1. 把大標題文字往上推 */
+/* 你的按鈕樣式 */
+#retro-title-logo {
+  image-rendering: pixelated;
+  max-width: 80%;
+  height: auto;
+  
+  /* 🏆 用這個負數 margin 把文字強行往上拉 🏆 */
+  margin-top: 150px !important; 
+  
+  /* 縮小文字與下方按鈕的距離 */
+  margin-bottom: 10px !important; 
+}
+
+/* 3. 針對 START 按鈕的修正 */
+.pixel-start-btn {
+  width: 150px !important; /* 調整為適合的大小 */
+  height: auto !important;
+  image-rendering: pixelated;
+  display: block !important;
+  margin: 0 auto !important; /* 水平置中 */
+  
+  /* 🏆 確保按鈕貼近文字 🏆 */
+  margin-top: 320px !important; 
+}
+.hero .container a {
+  display: inline-block !important;
+  width: auto !important;
+}
+
+/* 按鈕滑鼠移上去時放大 */
+a:hover .pixel-start-btn {
+  transform: scale(1.1);
+  filter: brightness(1.2); /* 👈 增加一點亮度，做出選中的感覺 */
+}
+
+/* 🏆 加分項：讓按鈕像遊戲一樣閃爍（呼吸燈） 🏆 */
+.pixel-start-btn {
+  animation: btn-glow 1.5s infinite; /* 👈 加入動畫 */
+}
+
+@keyframes btn-glow {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; } /* 👈 半透明閃爍 */
+  100% { opacity: 1; }
+}
+
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/

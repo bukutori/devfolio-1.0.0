@@ -1716,6 +1716,28 @@ a:hover .pixel-start-btn {
   100% { opacity: 1; }
 }
 
+.like{
+ background: #fff;
+padding: 30px;
+/* 像素風關鍵：移除圓角並使用粗邊框 */
+border-radius: 0; 
+border: 4px solid #712265; 
+/* 使用內陰影製作出「雙層邊框」或「立體感」，這是像素風常見的技巧 */
+box-shadow: 
+  inset -4px -4px 0px 0px #ccc, /* 右下角的淺色陰影，增加立體感 */
+  0 10px 0px rgb(127, 20, 97); /* 外部下沉陰影 */
+height: 100%;
+width: auto;
+transition: 0.2s;
+/* 讓裡面的圖片縮放時不會模糊 */
+image-rendering: pixelated;
+}
+.accordion-item{
+  background: #ffffff; margin-bottom: 20px; border: none; box-shadow: 0 4px 0 0 #8d5617, 0 -4px 0 0 #8d5617, 4px 0 0 0 #8d5617, -4px 0 0 0 #8d5617;
+}
+.accordion-button .collapsed{
+  background: #fcecce; color: #000;border-radius: 0px !important;
+}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/

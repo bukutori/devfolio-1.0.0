@@ -744,7 +744,7 @@ section,
 # About Section
 --------------------------------------------------------------*/
 .about .container {
-  background-color: #ebdbb5;
+  background-color: #efe2c3;
   padding: 0px; margin-bottom: 20px; box-shadow: 0 4px 0 0 #7e5822, 0 -4px 0 0 #7e5822, 4px 0 0 0 #7e5822, -4px 0 0 0 #7e5822;
   padding: 30px;
   
@@ -765,6 +765,7 @@ section,
 }
 
 .about .progress .skill {
+
   color: var(--default-color);
   padding: 0;
   margin: 0 0 6px 0;
@@ -772,6 +773,7 @@ section,
   display: block;
   font-weight: 600;
   font-family: var(--heading-font);
+  font-size: 18px;
 }
 
 .about .progress .skill .val {
@@ -784,6 +786,7 @@ section,
   height: 10px;
 }
 
+
 .about .progress-bar {
   width: 1px;
   height: 10px;
@@ -792,7 +795,8 @@ section,
 }
 
 .about .about-me h4 {
-  font-size: 28px;
+  font-size: 30px;
+  color: #5f4921;
   position: relative;
   padding-bottom: 10px;
   margin-bottom: 30px;
@@ -801,7 +805,7 @@ section,
 
 
 .about .about-me p {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /*--------------------------------------------------------------
@@ -867,35 +871,34 @@ section,
 # Services Section
 --------------------------------------------------------------*/
 .services .service-item {
-  background-color: var(--surface-color);
-  box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
-  padding: 60px 30px;
-  transition: all ease-in-out 0.3s;
-  border-radius: 18px;
-  border-bottom: 5px solid var(--surface-color);
-  height: 100%;
-}
-
-.services .service-item .icon {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  margin: 0;
-  width: 64px;
-  height: 64px;
-  border-radius: 50px;
+ /* 1. 只保留背景圖片設置，並加上 !important 確保覆蓋原本的樣式 */
+  background-image: url('../img/botton/book.png') !important; 
+  background-size: cover;       /* 圖片鋪滿 */
+  background-position: center;  /* 圖片居中 */
+  background-repeat: no-repeat; /* 不重複 */
+  padding: 0 !important;
   display: flex;
+  flex-direction: column;   /* 讓內容由上而下排列 */
+  justify-content: center;  /* 垂直置中 */
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  font-size: 28px;
-  transition: ease-in-out 0.3s;
-}
+  /* 4. 為了讓圖片能顯示出來，我們需要手動設置一個高度 */
+  /* 您可以根據您的圖片比例和需要調整這個高度值，例如 300px, 400px 等 */
+  height: 300px; 
+  
+  /* 5. 確保圖片能撐滿整個容器的寬度 */
+  width: 230px;
+  image-rendering: pixelated;
 
+}
+.services .service-item .icon {
+  display: none;
+}
 .services .service-item h3 {
   font-weight: 700;
   margin: 10px 0 15px 0;
   font-size: 22px;
   transition: ease-in-out 0.3s;
+  text-align: center;
 }
 
 .services .service-item p {
@@ -911,7 +914,7 @@ section,
   }
 
   .services .service-item:hover h3 {
-    color: var(--accent-color);
+    color: #ffc400;
   }
 }
 
@@ -1758,4 +1761,7 @@ image-rendering: pixelated;
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+#preloader {
+  display: none !important;
 }

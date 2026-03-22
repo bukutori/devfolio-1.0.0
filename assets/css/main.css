@@ -1722,7 +1722,7 @@ image-rendering: pixelated;
   background: #fcecce; color: #000;border-radius: 0px !important;
 }
 .pixel-card{
-  background: #fff; padding: 10px; margin-bottom: 20px; box-shadow: 0 4px 0 0 #983187, 0 -4px 0 0 #983187, 4px 0 0 0 #983187, -4px 0 0 0 #000;
+  background: #fff; padding: 10px; margin-bottom: 20px; box-shadow: 0 4px 0 0 #983187, 0 -4px 0 0 #983187, 4px 0 0 0 #983187, -4px 0 0 0 #983187;
 }
 .img-fluid{
   image-rendering: pixelated; 
@@ -1748,7 +1748,7 @@ image-rendering: pixelated;
 
 /* 控制圖示大小 */
 .title-icon {
-  width: 60px;              /* 調整成適合標題的大小 */
+  width: 90px;              /* 調整成適合標題的大小 */
   height: auto;
   image-rendering: pixelated;
 }

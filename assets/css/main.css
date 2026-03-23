@@ -473,7 +473,7 @@ h6 {
 }
 
 .footer .social-links {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .footer .social-links a {
@@ -1755,6 +1755,26 @@ image-rendering: pixelated;
 .col-lg-5{
    background: #fff; padding: 0px; margin-bottom: 20px; box-shadow: 0 4px 0 0 #8a3ca6, 0 -4px 0 0 #8a3ca6, 4px 0 0 0 #8a3ca6, -4px 0 0 0 #8a3ca6;
 }
+
+
+.hover-img {
+  display: block;
+  width: 210px;
+  height: auto;
+  image-rendering: pixelated;
+  filter: brightness(1.2);
+  margin-top: 50px;
+  
+  /* 設定動畫過渡時間 */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* 當滑鼠移上去時的效果 */
+.hover-img:hover {
+  transform: scale(1.10); /* 放大 1.15 倍 */
+ /* 順便再變亮一點點也可以 */
+}
+
 
 /*--------------------------------------------------------------
 # Starter Section Section

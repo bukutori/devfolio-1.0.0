@@ -893,7 +893,7 @@ section,
 .services .service-item .icon {
   display: none;
 }
-.services .service-item h3 {
+.services .service-item h4 {
   font-weight: 700;
   margin: 10px 0 15px 0;
   font-size: 22px;

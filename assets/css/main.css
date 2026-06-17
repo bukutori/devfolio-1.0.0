@@ -1865,3 +1865,17 @@ image-rendering: pixelated;
 #preloader {
   display: none !important;
 }
+
+/* 漂浮動畫 */
+.floating-btn {
+  animation: float 1s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}

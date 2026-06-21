@@ -47,8 +47,8 @@ body{
     width: 100%;
   }
   
-  .tube.selected {
-    border-color: "red";
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    transform: translateY(-20px);
-  }
+ .tube.selected {
+  border-color: red; /* 拿掉雙引號 */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transform: translateY(-20px);
+}
